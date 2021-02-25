@@ -284,10 +284,10 @@ export default {
       return Boolean(addresses?.length);
     });
 
-    const handleStepSubmit = () => context.emit('submit');
+    const handleStepSubmit = () => context.emit('stepSubmit');
     const handleAddressSubmit = (reset) => async () => {
       const addressId = currentAddressId.value;
-      await props.handleShippingAddressSubmit({ shippingDetails: shippingDetails.value });
+      await props.handleShippingAddressSubmit(shippingDetails.value);
       if (addressId !== NOT_SELECTED_ADDRESS && setAsDefault.value) {
         const chosenAddress = userShippingGetters.getAddresses(userShipping.value, { id: addressId });
         if (chosenAddress && chosenAddress.length) {
